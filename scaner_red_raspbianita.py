@@ -4,7 +4,7 @@ import json
 import socket
 import paho.mqtt.client as mqtt
 
-# Configuración de MQTT
+#Configuración de MQTT
 mqtt_broker = "192.168.1.66"
 mqtt_port = 1883
 mqtt_topic = "dispositivos"
@@ -17,7 +17,7 @@ def obtener_nombre_dispositivo(ip):
     except socket.error:
         return ""
 
-# Función para escanear la red y obtener los dispositivos conectados
+
 def escanear_red():
     nm = nmap.PortScanner()
     nm.scan(hosts='192.168.1.0/24', arguments='-sn')
@@ -30,14 +30,14 @@ def escanear_red():
             dispositivos.append({"ip": ip, "mac": mac, "nombre": nombre})
     return dispositivos
 
-# Función para publicar la lista de dispositivos en MQTT
+
 def publicar_dispositivos(dispositivos):
     client = mqtt.Client()
     client.connect(mqtt_broker, mqtt_port)
     client.publish(mqtt_topic, json.dumps(dispositivos))
     client.disconnect()
 
-# Bucle principal
+
 while True:
     try:
         dispositivos = escanear_red()

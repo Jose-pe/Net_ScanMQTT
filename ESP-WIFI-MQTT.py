@@ -5,8 +5,8 @@ import time
 from umqtt.simple import MQTTClient
 
 # Configura los parámetros de tu red WiFi
-SSID = "VOMBM"
-PASSWORD = "Belik88+"
+SSID = "NOMBRE DE RED"
+PASSWORD = "CONTRASEÑA DE RED"
 
 # Configura los parámetros de tu broker MQTT
 MQTT_BROKER = "192.168.1.66"
